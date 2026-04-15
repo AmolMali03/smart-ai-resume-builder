@@ -19,7 +19,26 @@
 }
 
 
+/* ... your existing code ... */
 
+@layer base {
+  /* Existing button/input/textarea rules... */
+}
+
+/* ADD THIS SECTION BELOW */
+@media print {
+  * {
+    /* Force the browser to render background colors and images */
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Optional: Hide the navbar and buttons when printing */
+  .no-print {
+    display: none !important;
+  }
+}
 
 
 

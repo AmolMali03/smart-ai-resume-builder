@@ -27,37 +27,56 @@ const ResumePreview = ({data, template, accentColor, classes = ""}) => {
       </div>
 
       <style jsx>
-        {`
-        @page {
-          size: letter;
-          margin: 0;
-        }
-        @media print {
-          html, body {
-            width: 8.5in;
-            height: 11in;
-            overflow: hidden; 
-          }
-          body * {
-            visibility: hidden;
-          }
-          #resume-preview, #resume-preview * {
-            visibility: visible;
-          }
-          #resume-preview {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: auto;
-            margin: 0;
-            padding: 0;
-            box-shadow: none !important;
-            border: none !important;
-          }
-        }
-        `}
-      </style>
+  {`
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  @media print {
+    /* 1. Force Colors */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    /* 2. Setup Page Layout */
+    html, body {
+      width: 210mm; /* Standard A4/Letter width */
+      height: 297mm; 
+      overflow: hidden;
+      background: white !important;
+    }
+
+    /* 3. Hide everything except the resume */
+    body * {
+      visibility: hidden;
+    }
+
+    #resume-preview, #resume-preview * {
+      visibility: visible;
+    }
+
+    /* 4. Position Resume on the PDF */
+    #resume-preview {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    /* 5. Clean up any links or buttons */
+    a[href]:after {
+      content: none !important;
+    }
+  }
+  `}
+</style>
     </div>
   )
 }
