@@ -116,7 +116,7 @@ const Hero = () => {
                                 key={index} 
                                 src={logo} 
                                 alt="brand" 
-                                className="h-15 md:h-12 w-auto grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-300" 
+                                className="h-19 md:h-12 w-auto grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all duration-300" 
                             />
                         ))}
                     </div>
